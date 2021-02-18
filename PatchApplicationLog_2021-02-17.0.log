@@ -1,0 +1,112 @@
+***********************START***********************
+Patch Mode : deployment
+Component : server
+Target build tag version : Release_AC_3_3_01_14Oct2020
+Executing prerequisite steps...
+Executing prerequisite step : Step to check target build tag version
+Checking patch for valid build tag version...
+Executing prerequisite step : Step to check temp directory for read/write permission and available free space
+Checking Temp directory for read/write permission...
+Checking Temp directory for available free space...
+Executing dependent prerequisite step : Step to check read or write permission to installation file/folder
+Cleaning temp directory.
+Extracting patch to : /tmp/PatchUpdate
+Listing patch files...
+Checking read/write permission on target environment file/folder...
+Executing prerequisite step : Step to check whether adeptia services are running or not
+Checking Kernel application status...
+Checking Webrunner application status...
+Executing dependent prerequisite step : Step to check file for in use
+Checking files for in use.
+Executing prerequisite step : Step to check storage space in target environment
+Checking target environment for available free space...
+Executing prerequisite step : Step to check storage space under extracted patch folder
+Checking directory for available free space...
+Extracted patch folder path : /mnt/AC_ILWOTC/patch
+Executing prerequisite step : Step to check backend database connection
+Checking backend database connection...
+Checking connection with database...
+Connection created successfully.
+Executing dependent prerequisite step : Step to check database permission
+Executing prerequisite step : Step to check log database connection
+Checking log database connection...
+Checking connection with database...
+Connection created successfully.
+Executing dependent prerequisite step : Step to check database permission
+Executing prerequisite step : Step to check quartz database connection
+Executing dependent prerequisite step : Step to check database permission
+Executing prerequisite step : Step to check Database Driver for ACE patch
+Activity: "Prerequisite" executed successfully
+Deleting folder :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/dependency
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/web/static/connect2/partner/ImportPartners.csv
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager-3.3.jar
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager.jar
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager-1.1.1.jar
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager-1.1.2.jar
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager-3.1.jar
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager-3.2.jar
+File not found :: /mnt/AC_ILWOTC/AdeptiaConnect-3.3/ConnectServer/AdeptiaServer/ServerKernel/ext/AgentManager-3.0.jar
+Activity: "Delete Files" executed successfully
+Copying files to recovery folder
+Files copied to recovery folder successfully
+Copying files to target folder
+Copying folder :: etc
+Copying folder :: customClasses
+Copying folder :: dependency
+Copying folder :: MigrationUtility
+Copying folder :: web
+Copying folder :: UpdateLicense
+Copying /tmp/PatchUpdate/AIMap_linux folder in AIMap
+Copying file :: logs-archive-cleanup.bat
+Copying file :: logs-archive-cleanup.sh
+Copying file :: startup.sh
+Copying folder :: tracer
+Copying file :: version.txt
+Files copied to target folder successfully
+Activity: "Copy Files" executed successfully
+Merging properties files
+File "server-configure.properties" merged successfully.
+File "adapters.properties" merged successfully.
+File "auth.properties" merged successfully.
+Activity: "Merge Properties Files" executed successfully
+Update database required :: true
+Executing backend database script.
+Backend database script executed successfully.
+Activity: "Apply Backend Database Changes" executed successfully
+Executing log database script.
+Log database script executed successfully.
+Executing log archive database script.
+Log archive database scriptlogArchiveDatabasePatchFile_MySQL.sql executed successfully.
+Activity: "Apply Log Database Changes" executed successfully
+Quartz database changes are not present or already applied by other node.
+Activity: "Apply Quartz Database Changes" executed successfully
+Rich Forms change not present in the patch.
+Activity: "Upgrade Rich Forms" executed successfully
+Updating network in all transactions.
+Fetching all partner transactions for which network needs to be update.
+Executing query: SELECT T.ID, T.PARTNER_ID, T.TEMPLATE_ID, T.DIRECTION, TT.PARAMETERS_INFO, T.PARAMETERS_INFO AS TXN_PARAMS FROM AC_TRANSACTION T INNER JOIN AC_TRANSACTION_TEMPLATE TT ON T.TEMPLATE_ID = TT.ID WHERE T.PARTNER_ID IS NOT NULL AND T.PARTNER_ID !=1
+Transactions fetchied successfully.
+Executing query: SELECT * FROM AC_PARTNER_NETWORK_LINKAGE
+Executing query: SELECT * FROM AC_TEMPLATE_AC_NETWORK
+Network updated successfully in all transactions.
+Activity: "Update Network in Transactions" executed successfully
+Is LDAP Enabled :: no
+Activity: "Update users" executed successfully
+Creating accelerator recovery zip...
+No update and delete changes present in connect2.0-changeList.xml file for build tag 'Release_AC_3_3_01_14Oct2020'; hence not exporting recovery zip
+Installing accelerators...
+Installing accelerator : connect2.0
+Accelerator being deployed currently : connect2.0
+Getting table list from extracted accelerator zip.
+Activity: "Accelerators" executed successfully
+Updating build tag in database.
+Build tag updated successfully in database.
+Activity: "Update Database Build Version" executed successfully
+recovery.zip file created successfully.
+Activity: "Create Recovery" executed successfully
+Property file not found at location: /tmp/PatchUpdate/recovery/DeleteFiles/etc/cluster/cluster.properties
+Property file not found at location: /tmp/PatchUpdate/recovery/DeleteFiles/etc/cluster/heartbeat.properties
+Activity: "Update Properties" executed successfully
+Removing shutdown hook as process completed successfully.
+Patch deployed successfully.
+***********************END***********************
